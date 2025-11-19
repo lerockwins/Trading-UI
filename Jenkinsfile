@@ -13,7 +13,7 @@ pipeline {
             steps{
 
                 sh'npm install'
-                sh 'export NODE_OPTIONS=--openssl-legacy-provider && npm run build'
+                sh 'CI=false npm run build'
                 sh'pm2 delete Trading-UI || true'
                 sh'pm2 --name Trading-UI start npm -- start'
             }
